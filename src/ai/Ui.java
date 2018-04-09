@@ -19,7 +19,7 @@ public class Ui {
 		 akt_generacia = new ArrayList<Stav>();
 		 
 		 
-		 vytvor(5000);
+		 vytvor(30);
 		 
 		 int max_skore=0;
 		 Stav naj=null;
