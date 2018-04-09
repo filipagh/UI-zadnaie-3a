@@ -12,33 +12,17 @@ public class Stav {
 	int smerx;
 	int smery;
 	int skore;
-	public Stav(int [][] zapis,int[] geny_imp)
+	public Stav(int[] geny_imp)
 	{
-		pole=zapis.clone();
-		geny=  geny_imp.clone();// new int[] {0, 14, 4, 18, 26, 28, 43, 9, 11, 29, 23, 2, 27, 35, 13, 7, 30, 22, 39, 41, 1, 10, 5, 38, 34, 33, 40, 37};//
+		pole=new int[10][12];
+		vytvorpole();
+		geny=  geny_imp.clone();
 		for (int i=0;i<28;i++)
 		{
-			//System.out.print(geny[i]+", ");
+			System.out.print(geny[i]+", ");
 		
 		}
-	//	System.out.println();
-		presun();
-		
-		skore = 10*12;
-		for (int p=0;p<10;p++ )
-		{
-			for (int k=0;k<12;k++)
-			{
-				if (pole[p][k]==0)
-				{
-				 skore--;	
-				}
-			}
-		}
-		System.out.println(skore);
-		
-		
-		
+		System.out.println();
 	}
 	
 	public boolean over_sur(int x, int y)
@@ -103,21 +87,35 @@ public class Stav {
 					pocet_ciest++;
 				
 					hrabaj(pocet_ciest);
-
-					for (int p=0;p<10;p++ )
-					{
-						for (int k=0;k<12;k++)
-						{
-							System.out.print(String.format("%2d", pole[p][k])+" ");
-						}
-						System.out.println();
-					}
-					System.out.println("************************************************************* hore je cesta cislo "+pocet_ciest);
 				}
 		}
-		
+	
+		skore = 10*12;
+		for (int p=0;p<10;p++ )
+		{
+			for (int k=0;k<12;k++)
+			{
+				if (pole[p][k]==0)
+				{
+				 skore--;	
+				}
+			}
+		}
+		System.out.println(skore);
 	}
 
+	public void zobraz()
+	{
+		for (int p=0;p<10;p++ )
+		{
+			for (int k=0;k<12;k++)
+			{
+				System.out.print(String.format("%2d", pole[p][k])+" ");
+			}
+			System.out.println();
+		}
+	}
+	
 	public void hrabaj(int i)
 	{
 	
@@ -199,5 +197,22 @@ public class Stav {
 		
 	}
 
+	public void vytvorpole()
+	{
+		for (int i=0;i<10;i++ )
+		{
+			for (int k=0;k<12;k++)
+			{
+				pole[i][k]=0;
+			}
+			
+		}
+	pole[1][5]=-1;	
+	pole[2][1]=-1;
+	pole[3][4]=-1;
+	pole[4][2]=-1;
+	pole[6][8]=-1;
+	pole[6][9]=-1;
+	}
 	
 }

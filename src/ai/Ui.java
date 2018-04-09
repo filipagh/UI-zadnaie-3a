@@ -1,100 +1,90 @@
 package ai;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Ui {
 
 	
-	public static akt_generacia 
-	public static int [][] zapis;
+	public static List<Stav> akt_generacia; 
 	
 	  public static void main (String[] args)
 	   	{
 		System.out.println("test");
  
-		 zapis=new int[10][12];
-		 napln();
-     
-		 vytvor();
+		
+		
+		  
+		 akt_generacia = new ArrayList<Stav>();
+		 
+		 
+		 vytvor(5000);
+		 
+		 int max_skore=0;
+		 Stav naj=null;
+		 for(Stav n : akt_generacia)
+		 {
+			 n.presun();
+			 
+			 if (n.skore>max_skore)
+			 {
+				 max_skore=n.skore;
+				 naj=n;
+				 
+			 }
+		 }
+		System.out.println("najlepsi z tejto generacie ma skore "+max_skore);
+		 naj.zobraz();
 		
 	}
 	
-	public static void vytvor()
+	public static void vytvor(int n)
 	{
-		int[] geny =new int[45];
-		int[] geny_exp = new int[28];
-	    for (int i=1;i<45;i++)
-	    {
-	    	geny[i]=i;
-	    }
-	    Random rand =new Random();
-	    for (int i=0;i<200;i++)
-	    {
-	    	int a =rand.nextInt(44)+1;
-	    	int b =rand.nextInt(44)+1;
-	    	int c;
-	    	c=geny[a];
-	    	geny[a]=geny[b];
-	    	geny[b]=c;
-	    }
-	    
-	    
-	    geny_exp=new int[28];
-	    
-	    for (int i=1;i<28;i++)
-	    {
-	    	geny_exp[i]=geny[i];
-	    }
-	  
-	   
-
-	    
-		Stav a = new Stav(zapis,geny_exp); 
-	}
-	  
-	  
-	  
-
-	
-	
-	
-	
-	public static void napln()
-	{
-		
-		for (int i=0;i<10;i++ )
+		for (int p=0;p<n;p++)
 		{
-			for (int k=0;k<12;k++)
+			int[] geny =new int[45];
+			int[] geny_exp = new int[28];
+			for (int i=1;i<45;i++)
 			{
-				zapis[i][k]=0;
-				
+				geny[i]=i;
 			}
-			
-		}
-	zapis[1][5]=-1;
-	/*
-	zapis[0][1]=-1;
-	zapis[0][2]=-1;
-	zapis[0][3]=-1;
-	zapis[0][4]=-1;
-	zapis[0][5]=-1;
-	zapis[0][6]=-1;
-	*/
-	zapis[2][1]=-1;
-	zapis[3][4]=-1;
-	zapis[4][2]=-1;
-	zapis[6][8]=-1;
-	zapis[6][9]=-1;
-		for (int i=0;i<10;i++ )
-		{
-			for (int k=0;k<12;k++)
+			Random rand =new Random();
+			for (int i=0;i<200;i++)
 			{
-				System.out.print(zapis[i][k]+", ");
+				int a =rand.nextInt(44)+1;
+				int b =rand.nextInt(44)+1;
+				int c;
+				c=geny[a];
+				geny[a]=geny[b];
+				geny[b]=c;
 			}
-			System.out.println();
+
+
+			geny_exp=new int[28];
+
+			for (int i=1;i<28;i++)
+			{
+				geny_exp[i]=geny[i];
+			}
+
+			vloz(new Stav(geny_exp));
+
+			//Stav a = new Stav(zapis,geny_exp);
 		}
 	}
+	  
+	  
+	  
+	public static void vloz(Stav imp)
+	{
+		akt_generacia.add(imp);
+	}
 	
+	
+	
+	
+
 	
 	
 }
