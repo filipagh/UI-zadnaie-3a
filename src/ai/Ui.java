@@ -3,6 +3,7 @@ package ai;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.TreeMap;
 
 public class Ui {
 
@@ -11,9 +12,9 @@ public class Ui {
 	
 	  public static void main (String[] args)
 	   	{
-		System.out.println("test");
- 
 		
+		  TreeMap<Integer, Stav> tmap = new TreeMap<Integer, Stav>();
+	
 		
 		  
 		 akt_generacia = new ArrayList<Stav>();
@@ -22,6 +23,9 @@ public class Ui {
 		 vytvor(30);
 		 
 		 int max_skore=0;
+		 do
+		 {
+	     max_skore=0;
 		 Stav naj=null;
 		 for(Stav n : akt_generacia)
 		 {
@@ -31,12 +35,12 @@ public class Ui {
 			 {
 				 max_skore=n.skore;
 				 naj=n;
-				 
+				 tmap.put(n.skore, value)
 			 }
 		 }
 		System.out.println("najlepsi z tejto generacie ma skore "+max_skore);
 		 naj.zobraz();
-		
+		 } while (max_skore != 120);
 	}
 	
 	public static void vytvor(int n)
