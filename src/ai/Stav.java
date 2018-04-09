@@ -11,6 +11,7 @@ public class Stav {
 	int y;
 	int smerx;
 	int smery;
+	int skore;
 	public Stav(int [][] zapis,int[] geny_imp)
 	{
 		pole=zapis.clone();
@@ -22,6 +23,22 @@ public class Stav {
 		}
 	//	System.out.println();
 		presun();
+		
+		skore = 10*12;
+		for (int p=0;p<10;p++ )
+		{
+			for (int k=0;k<12;k++)
+			{
+				if (pole[p][k]==0)
+				{
+				 skore--;	
+				}
+			}
+		}
+		System.out.println(skore);
+		
+		
+		
 	}
 	
 	public boolean over_sur(int x, int y)

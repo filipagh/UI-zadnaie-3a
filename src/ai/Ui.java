@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class Ui {
 
+	
+	public static akt_generacia 
 	public static int [][] zapis;
 	
 	  public static void main (String[] args)
