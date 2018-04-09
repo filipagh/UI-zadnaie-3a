@@ -52,7 +52,7 @@ public class Ui {
 	  
 	  
 	  
-	  
+
 	
 	
 	
@@ -70,14 +70,14 @@ public class Ui {
 			
 		}
 	zapis[1][5]=-1;
-	
+	/*
 	zapis[0][1]=-1;
 	zapis[0][2]=-1;
 	zapis[0][3]=-1;
 	zapis[0][4]=-1;
 	zapis[0][5]=-1;
 	zapis[0][6]=-1;
-	
+	*/
 	zapis[2][1]=-1;
 	zapis[3][4]=-1;
 	zapis[4][2]=-1;
