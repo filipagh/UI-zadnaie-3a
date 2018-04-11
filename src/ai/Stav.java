@@ -24,6 +24,7 @@ public class Stav {
 		}
 		System.out.println();
 	}
+
 	
 	public boolean over_sur(int x, int y)
 	{
