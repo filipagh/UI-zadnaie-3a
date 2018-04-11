@@ -19,10 +19,10 @@ public class Stav {
 		geny=  geny_imp.clone();
 		for (int i=0;i<28;i++)
 		{
-			System.out.print(geny[i]+", ");
+		//	System.out.print(geny[i]+", ");
 		
 		}
-		System.out.println();
+		//System.out.println();
 	}
 
 	
@@ -102,7 +102,7 @@ public class Stav {
 				}
 			}
 		}
-		System.out.println(skore);
+		//System.out.println(skore);
 	}
 
 	public void zobraz()
